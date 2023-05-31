@@ -105,7 +105,7 @@ const starWarsCharacters = [
   Crea una variabile chiamata "characters" e assegnale un array vuoto
 */
 
-let characters = []
+const characters = []
 
 /* ESERCIZIO 2
   Utilizzando un ciclo for, cicla l'array "starWarsCharacters". 
@@ -128,6 +128,11 @@ let femaleCharacters = []
 
 for (i = 0;i<starWarsCharacters.length;i++){
   if(starWarsCharacters[i].gender === "female"){
+    let copy = Object.assign(starWarsCharacters[i])
+    delete copy.birth_year
+    delete copy.gender
+    delete copy.height
+    delete copy.skin_color
   femaleCharacters.push(starWarsCharacters[i])
 }
 }
@@ -207,14 +212,14 @@ console.log("Crew Mass Total", crewMass)
 //   Crea uno switch statement per rivelare la tipologia di carico, utilizzando la massa totale, di un'ipotetica astronave contenente i personaggi dell'array "starWarsCharacters"
 //   (sei in difficoltà? cerca su un motore di ricerca switch case e conditionals)
   
-  switch(crewMass){
-    case "crewMass"<500: crewMass="Ship is under loaded" break
-    case "crewMass"===500: crewMass="Ship is half loaded" break
-    case "crewMass">700: crewMass="Warning: Load is over 700" break
-    case "crewMass"<900: crewMass = "Critical Load: Over 900" break
-    case "crewMass"<1000: crewMass="DANGER! OVERLOAD ALERT: escape from ship now!" break
-    deafult: crewMass break
-  }
+  // switch(crewMass){
+  //   case "crewMass"<500: crewMass="Ship is under loaded" break
+  //   case "crewMass"===500: crewMass="Ship is half loaded" break
+  //   case "crewMass">700: crewMass="Warning: Load is over 700" break
+  //   case "crewMass"<900: crewMass = "Critical Load: Over 900" break
+  //   case "crewMass"<1000: crewMass="DANGER! OVERLOAD ALERT: escape from ship now!" break
+  //   deafult: crewMass break
+  // }
   
   console.log(crewMass)
 
@@ -223,7 +228,9 @@ console.log("Crew Mass Total", crewMass)
   // Una volta fatto, modifica la massa di qualche elemento dell'equipaggio e vedi se riesci ad ottenere un messaggio diverso.
 // */
 
-altro esercizio
+
+
+
 
 /* ESERCIZIO 8
   Usa un for loop per cambiare il valore della proprietà "gender" di alcuni personaggi dal valore "n/a" a "robot" (Tip: puoi effettuare la riassegnazione del valore corrispondente o creare un nuovo array)
