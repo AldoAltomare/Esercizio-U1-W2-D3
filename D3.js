@@ -144,7 +144,7 @@ console.log(femaleCharacters)
   Ad ognuna di queste proprietà assegna come valore un array vuoto.
 */
 
-let eyeColor = {blue: [], yellow: [], brown: [], red: [], blueGray: []}
+let eyeColor = {blue: [], yellow: [], brown: [], red: [], "blue-gray": []}
 
 console.log(eyeColor)
 
@@ -164,7 +164,7 @@ console.log(eyeColor)
 }else if(starWarsCharacters[i].eye_color === "red"){
   eyeColor.red.push(starWarsCharacters[i])
 }else if(starWarsCharacters[i].eye_color === "blue-gray"){
-  eyeColor.blueGray.push(starWarsCharacters[i])
+  eyeColor["blue-gray"].push(starWarsCharacters[i])
 }
   }
   console.log(eyeColor)
@@ -201,7 +201,9 @@ let crewMass = 0
 let x = 0
 
 while(x<starWarsCharacters.length){
-  crewMass += Number(starWarsCharacters[x].mass)
+  // crewMass += Number(starWarsCharacters[x].mass)
+  // crewMass = crewMass + Number(starWarsCharacters[x].mass)
+  crewMass = crewMass + parseInt(starWarsCharacters[x].mass)
   x++
 }
 
@@ -212,29 +214,57 @@ console.log("Crew Mass Total", crewMass)
 //   Crea uno switch statement per rivelare la tipologia di carico, utilizzando la massa totale, di un'ipotetica astronave contenente i personaggi dell'array "starWarsCharacters"
 //   (sei in difficoltà? cerca su un motore di ricerca switch case e conditionals)
   
-  // switch(crewMass){
-  //   case "crewMass"<500: crewMass="Ship is under loaded" break
-  //   case "crewMass"===500: crewMass="Ship is half loaded" break
-  //   case "crewMass">700: crewMass="Warning: Load is over 700" break
-  //   case "crewMass"<900: crewMass = "Critical Load: Over 900" break
-  //   case "crewMass"<1000: crewMass="DANGER! OVERLOAD ALERT: escape from ship now!" break
-  //   deafult: crewMass break
-  // }
-  
-  console.log(crewMass)
-
-
+  switch(true){
+    case crewMass < 500 :
+      console.log("Ship is under loaded")
+    break;
+    case crewMass === 500:
+      console.log("Ship is half loaded")
+    break;
+    case crewMass > 500 && crewMass < 700:
+      console.log("Ship is half loaded")
+    break;
+    case crewMass > 700 && crewMass < 900:
+      console.log("Warning: Load is over 700")
+    break;
+    case crewMass > 900 && crewMass < 1000:
+      console.log("Critical Load: over 900")
+    break;
+    case crewMass <= 1000:
+      console.log("DANGER DANGER")
+    break;
+  }
 
   // Una volta fatto, modifica la massa di qualche elemento dell'equipaggio e vedi se riesci ad ottenere un messaggio diverso.
 // */
 
 
 
-
-
 /* ESERCIZIO 8
   Usa un for loop per cambiare il valore della proprietà "gender" di alcuni personaggi dal valore "n/a" a "robot" (Tip: puoi effettuare la riassegnazione del valore corrispondente o creare un nuovo array)
 */
+
+
+for(let i=0;i<starWarsCharacters.length;i++){
+  if(starWarsCharacters[i].gender === "n/a"){
+    (starWarsCharacters[i].gender = "robot")
+  }
+}
+
+console.log(starWarsCharacters)
+
+
+
+let copyOfstarWarsCharacters = starWarsCharacters
+
+for(let i=0;i<copyOfstarWarsCharacters.length;i++){
+  if(copyOfstarWarsCharacters[i].gender === "n/a"){
+    (copyOfstarWarsCharacters[i].gender = "robot")
+  }
+}
+
+console.log(copyOfstarWarsCharacters)
+
 
 /* --EXTRA-- ESERCIZIO 9
   Utilizzando gli elementi presenti nell'array "femaleCharacters" rimuovi dall'array "characters" le stringhe corrispondenti a personaggi con lo stesso nome.
